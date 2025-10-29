@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Cadastro</a>
+        <a class="navbar-brand" href="index.php">Cadastro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,10 +29,6 @@
               <a class="nav-link" href="?page=listar">Listar Usuários</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
@@ -56,13 +52,16 @@
                 include("editar-usuario.php");
                 break;
               default:
-                print("<h1>Bem vindos!</h1>");
+                if (isset($row->nome)) {
+                  print("<h1>Bem-vindo(a), " . $row->nome . "!</h1>");
+                } else {
+                  print("<h1>Bem-vindo(a), visitante!</h1>");
+                }
             }
           ?>
         </div>
       </div>
     </div>
-    
 
     <script src="js/bootstrap.bundle.min.js"></script>
 
